@@ -84,13 +84,24 @@ public class SetPractice {
 		//  What is different when you use TreeSet?
 		Set<String>set1=new TreeSet<String>();
 		addAll(set1 ,"dog","ant","bird","elephant","cat");
-		
+		print(set1);
 		// Hint: Use Polymorphism.  Make the Set object be a *parameter* to the
 		// method so you can easily use a different set just by changing the parameter!
 		
 		// 10. Repeat again using TreeSet with a Comparator.
-		print(set1);
+		Comparator<String> treeset = new Comparator<String>() {
+			@Override
+			public int compare(String x, String y) {
+				return x.compareTo(y);
+			}
+		};
+		Set<String> treeComp = new TreeSet<String>(treeset);
+		addAll(treeComp, "dog", "ant", "bird", "elephant", "cat");
+		System.out.println();
+		print(treeComp);
 	}
+		
+	
 
 	
 
